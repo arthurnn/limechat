@@ -1714,7 +1714,7 @@
         if ([target isKindOfClass:[IRCChannel class]]) {
             channel = (IRCChannel*)target;
             chname = channel.name;
-            if (!channel.config.notify) {
+            if (!channel.config.notify || (type == USER_NOTIFICATION_CHANNEL_MSG && ![@"#mongoid" isEqualToString:chname])) {
                 return;
             }
         }
